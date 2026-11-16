@@ -1,0 +1,22 @@
+Randomised customers: 5,512  (day 1: 2,751, day 3: 2,761)
+Sample-ratio check: chi-square 0.02, p = 0.893  (p < 0.01 would signal a broken split)
+  day1: 586 conversions, 4 missing loan value
+  day3: 478 conversions, 6 missing loan value
+
+            n(d1/d3)   conv d1   conv d3   diff [95% CI]            p      unsub+   compl+   value d1/d3   value diff [95% CI]   value
+Overall   2751/2761     21.3%    17.3%   +4.0% [+1.9%, +6.1%]   0.000   +1.1%   +0.3%   £ 339/£325    £  +14 [£-56, £+84]   INCONCLUSIVE
+Micro     1086/1110     23.0%    18.9%   +4.1% [+0.7%, +7.5%]   0.018   +2.2%   +0.4%   £  69/£119    £  -51 [£-93, £-10]   FAIL
+Small     1157/1114     21.1%    16.4%   +4.7% [+1.5%, +7.9%]   0.004   +0.5%   +0.2%   £ 396/£334    £  +62 [£-27, £+151]   PASS
+Medium     508/537      18.1%    15.8%   +2.3% [-2.3%, +6.8%]   0.326   +0.5%   +0.2%   £ 790/£733    £  +58 [£-236, £+349]   INCONCLUSIVE
+
+Verdict by segment: {'Micro': 'day 3', 'Small': 'day 3', 'Medium': 'day 3'}
+
+Sensitivity: each assumption at 0.5x and 2x, one at a time
+  margin          x0.5 overall value PASS         verdict {'Micro': 'day 3', 'Small': 'day 3', 'Medium': 'day 3'}
+  margin          x2   overall value INCONCLUSIVE verdict {'Micro': 'day 3', 'Small': 'day 3', 'Medium': 'day 3'}
+  late_cost       x0.5 overall value PASS         verdict {'Micro': 'day 3', 'Small': 'day 3', 'Medium': 'day 3'}
+  late_cost       x2   overall value INCONCLUSIVE verdict {'Micro': 'day 3', 'Small': 'day 3', 'Medium': 'day 3'}
+  unsub_cost      x0.5 overall value INCONCLUSIVE verdict {'Micro': 'day 3', 'Small': 'day 3', 'Medium': 'day 3'}
+  unsub_cost      x2   overall value INCONCLUSIVE verdict {'Micro': 'day 3', 'Small': 'day 3', 'Medium': 'day 3'}
+  complaint_cost  x0.5 overall value INCONCLUSIVE verdict {'Micro': 'day 3', 'Small': 'day 3', 'Medium': 'day 3'}
+  complaint_cost  x2   overall value INCONCLUSIVE verdict {'Micro': 'day 3', 'Small': 'day 3', 'Medium': 'day 3'}
