@@ -33,23 +33,32 @@ TARGET, EXPLORE, UNSUB = "#1d4e89", "#9db4d3", "#c2410c"
 fig, ax = plt.subplots(figsize=(9, 5.2), dpi=150)
 ax.bar(dec, up, color=[TARGET if t else EXPLORE for t in targeted], width=0.62, zorder=2)
 ax.errorbar(dec, up, yerr=[[e[0] for e in err], [e[1] for e in err]], fmt="none", ecolor=INK, elinewidth=1, capsize=3, zorder=3)
-ax.plot(dec, unsub, color=UNSUB, marker="o", linewidth=2, zorder=4)
 ax.axhline(0, color=INK, linewidth=0.8, zorder=1)
 
 ax.set_xticks(dec)
 ax.set_xticklabels([str(d) for d in dec])
 ax.set_xlabel("Model score decile (1 = lowest score, 10 = highest)", color=INK)
-ax.set_ylabel("Percentage points", color=INK)
+ax.set_ylabel("Conversion uplift (percentage points)", color=INK)
 ax.grid(axis="y", color=GRID, zorder=0)
 for s in ("top", "right"):
     ax.spines[s].set_visible(False)
 ax.tick_params(colors=MUTED)
 
-ax.text(1.25, unsub[0] + 0.6, "Unsubscribe rate\namong those emailed", color=UNSUB, fontsize=9, ha="left", va="bottom")
 ax.text(4.5, 11.3, "Mostly not emailed\n(15% random sample)", color=MUTED, fontsize=9, ha="center")
 ax.text(8.5, 11.3, "Emailed by the model\n(10% random hold-out)", color=TARGET, fontsize=9, ha="center")
 ax.axvline(6.5, color=GRID, linewidth=1, linestyle="--", zorder=1)
 ax.set_ylim(-3, 13)
+
+# Unsubscribe rate is a rate (%), not a difference, so it gets its own right-hand axis
+ax2 = ax.twinx()
+ax2.plot(dec, unsub, color=UNSUB, marker="o", linewidth=2, zorder=4)
+ax2.set_ylim(0, 6.5)
+ax2.set_ylabel("Unsubscribed (% of those emailed)", color=UNSUB)
+ax2.tick_params(axis="y", colors=UNSUB)
+ax2.spines["right"].set_color(UNSUB)
+for s in ("top", "left"):
+    ax2.spines[s].set_visible(False)
+ax2.text(1.25, unsub[0] + 0.25, "Unsubscribe rate among\nthose emailed (right axis)", color=UNSUB, fontsize=9, ha="left", va="bottom")
 
 fig.suptitle("The email lifts conversion most for high scorers; in the lowest decile it only adds unsubscribes",
              x=0.02, ha="left", fontsize=12, fontweight="bold", color=INK)
