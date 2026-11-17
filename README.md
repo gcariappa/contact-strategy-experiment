@@ -89,7 +89,7 @@ python3 analysis/model_check_chart.py  # model decile chart
 ```
 
 ## How this was built
-I set the questions, the pre-registration and the decision rules, and made the calls on the findings. I used Claude Code (an AI assistant) to help write and check the Python and SQL and to draft the write-up, which I reviewed and edited. This is a portfolio project, not commercial testing experience.
+I set the questions, the pre-registration and the decision rules, and made the calls on the findings. I used Claude Code to help write and check the Python and SQL and to draft the write-up, which I reviewed and edited. This is a portfolio project, not commercial testing experience.
 
 ## About me
 Gana Cariappa: analyst with a sports science background, based in London. I've built data models, benchmarks and reporting for multi-stakeholder programmes, including at the Premier League. MSc Human and Applied Physiology, King's College London. [LinkedIn](https://www.linkedin.com/in/gana-cariappa/)
