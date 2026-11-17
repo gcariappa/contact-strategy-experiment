@@ -81,7 +81,7 @@ Contacting customers at the right moment wins business, but contacting them too 
 
 ## How to reproduce
 ```bash
-pip3 install numpy matplotlib
+pip install -r requirements.txt
 python3 data/generate_data.py          # builds data/lender.db (fixed seed)
 python3 analysis/analyse_test.py       # split test, value check, sensitivity
 python3 analysis/split_test_chart.py   # headline chart
